@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listagem de Produtos</title>
+</head>
+<body>
+<h1>Listagem de Produtos</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Disponível para Venda</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produto : ${produtos}">
+        <td th:text="${produto.nome}"></td>
+        <td th:text="${produto.descricao}"></td>
+        <td th:text="${produto.preco}"></td>
+        <td th:text="${produto.disponivelParaVenda} ? 'Sim' : 'Não'"></td>
+        <td>
+            <form th:action="@{/produtos/excluir/{id}(id=${produto.id})}" method="post"
+                  onsubmit="return confirm('Deseja realmente excluir este produto?');">
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/produtos/cadastro" class="btn btn-primary">Cadastrar Novo Produto</a>
+</body>
+</html>
