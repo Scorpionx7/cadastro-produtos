@@ -95,7 +95,7 @@ Aqui estão os principais endpoints da aplicação:
 ### Passos:
 1. **Clone o Repositório**:
    ```bash
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/Scorpionx7/cadastro-produtos.git
    cd cadastro
    ```
 
